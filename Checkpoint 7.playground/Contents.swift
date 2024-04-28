@@ -28,10 +28,8 @@ class Cat: Animal {
     }
     
     func tame() -> String {
-        if isTame == true {
+        if isTame {
             return "This animal is tame."
-        } else if isTame == false {
-            return "This animal is not tame."
         } else {
             return "This animal may or may not be tame."
         }
@@ -50,12 +48,18 @@ class Poodle: Dog {
     }
 }
 
-
-
 class Persion: Cat {
     override func speak() {
         print("Meow!, Meowwww!, Meow!")
     }
+    
+    override func tame() -> String {
+         if isTame {
+             return "This Persian cat is tame."
+         } else {
+             return "This Persian cat is not tame."
+         }
+     }
 }
 
 class Lion: Cat {
@@ -64,13 +68,15 @@ class Lion: Cat {
     }
     
    override func tame() -> String {
-        if isTame == true {
+        if isTame {
             return "This lion is tame."
-        } else if isTame == false {
-            return "This lion is not tame."
         } else {
-            return "This lion may or may not be tame."
+            return "This lion is not tame."
         }
     }
 
 }
+//prints "Roar!!!!" and "This lion is not tame."
+let lion = Lion(isTame: false, legs: 4)
+lion.speak()
+print(lion.tame())
